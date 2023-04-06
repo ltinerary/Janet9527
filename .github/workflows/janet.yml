@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '2 0 * * *'
-    - cron: '20 8 * * *'
+    - cron: '25 8 * * *'
 
 jobs:
   send:
@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16
       - name: Time To Get Off Work
-        if: github.event.schedule == '20 8 * * *'
+        if: github.event.schedule == '25 8 * * *'
         env:
           USER: ${{ secrets.USER }}
           EP: ${{ secrets.EP }}
