@@ -26,6 +26,9 @@ module.exports = {
     'https://img1.imgtp.com/2023/03/27/SEkfy2Ut.jpg',
     'https://img1.imgtp.com/2023/04/06/qBorUQ7K.jpg',
     'https://img1.imgtp.com/2023/03/29/1Zsj1URC.jpg',
-    'https://img1.imgtp.com/2023/03/27/RY6X8Dcw.png'
+    'https://img1.imgtp.com/2023/03/27/RY6X8Dcw.png',
+    'https://img1.imgtp.com/2023/05/22/7biVzDGx.jpeg',
+    'https://img1.imgtp.com/2023/05/22/X7JxgQO9.jpeg',
+    'https://img1.imgtp.com/2023/05/22/t6gk6DXg.jpeg'
   ],//随机选取一张图片 todo
 }
