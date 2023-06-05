@@ -26,6 +26,38 @@ jobs:
         run: npm install --registry=https://registry.npm.taobao.org && npm run server
 ```
 
+```yml
+name: janet(●'◡'●)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '2 0 * * *'
+    - cron: '12 9 * * *'
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Time To Get Off Work
+        if: github.event.schedule == '12 9 * * *'
+        env:
+          USER: ${{ secrets.USER }}
+          EP: ${{ secrets.EP }}
+        run: echo "🚁 Time To Get Off Work" && node tips.js ${USER} ${EP}
+      - name: Daily Reminders
+        if: github.event.schedule == '2 0 * * *'
+        env:
+          USER: ${{ secrets.USER }}
+          EP: ${{ secrets.EP }}
+          WK: ${{secrets.WK}}
+        run: echo "🪂 Daily Reminders" && node index.js ${USER} ${EP} ${WK}
+```
+
 # 计划列表
 1.随机图片（采用自己已定义好的图片，获取base64地址）todo done
 
