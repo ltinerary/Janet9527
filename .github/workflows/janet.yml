@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '2 0 * * *'
-    - cron: '12 9 * * *'
 
 jobs:
   send:
@@ -14,12 +13,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Time To Get Off Work
-        if: github.event.schedule == '12 9 * * *'
-        env:
-          USER: ${{ secrets.USER }}
-          EP: ${{ secrets.EP }}
-        run: echo "🚁 Time To Get Off Work" && node tips.js ${USER} ${EP}
       - name: Daily Reminders
         if: github.event.schedule == '2 0 * * *'
         env:
