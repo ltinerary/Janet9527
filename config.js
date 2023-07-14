@@ -9,7 +9,7 @@
 // 配置信息
 module.exports = {
   fromDisplayText: '小范大人', // 收件箱展示的来件人名字 done
-  to: ['hdu424fan@qq.com','janet9527@qq.com'], // 发送到谁，填邮箱done
+  to: ['hdu424fan@qq.com','janet9527@qq.com','janet230411@163.com'], // 发送到谁，填邮箱done
   masterAccount: 'hdu424fan@qq.com',
   location: '101210301',
   type: '1,2,3,5,7,9,13,15,16',
