@@ -53,7 +53,7 @@ function fn(weatherData, lifeData, word, imgurl, lovingDays) {
         </div>
         <!-- 每日一句 -->
         <div>
-          <p style="font-size: 14px; text-indent: 2em; font-style: italic;">
+          <p style="font-size: 16px; font-style: italic;">
             ${word}
           </p>
         </div>

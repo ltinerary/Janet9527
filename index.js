@@ -26,6 +26,7 @@ const {
   type,
   startDay,
   imgs,
+  moneyRange
 } = require('./config');
 
 async function init() {
@@ -44,13 +45,18 @@ async function init() {
       `https://devapi.qweather.com/v7/indices/1d?key=${wk}&location=${location}&type=${type}`
     );
     const lifeData = await lifeRes.json();
+
+
     // // 获取one一个文案及图片
     // const oneRes = await fetch(
     //   `http://api.tianapi.com/txapi/one/index?key=${tianXingKey}`
     // );
     // const oneData = await oneRes.json();
     // const { word, imgurl } = oneData.newslist[0];
-    const word = "Tips:记得不要吃甜食！不要忘拔插座！";
+    const money = getRandom(moneyRange[0], moneyRange[1]);
+    const moneyRate = Math.random();
+    const word = `【约会基金】：范方出资 ${(money * moneyRate).toFixed(2)} 元，钱方出资 ${(money * (1 - moneyRate)).toFixed(2)} 元，共 ${money} 元。`;
+    console.log(`🥩 此次约会基金===>[${word}]`)
     const img = imgs[getRandom(0, imgs.length - 1)];
     console.log(`🍉 此次的图片为[${img}]`)
     const temp = await fetch(img);
