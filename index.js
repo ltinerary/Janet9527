@@ -26,7 +26,8 @@ const {
   type,
   startDay,
   imgs,
-  moneyRange
+  moneyRange,
+  marryDay
 } = require('./config');
 
 async function init() {
@@ -57,19 +58,20 @@ async function init() {
     const moneyRate = Math.random();
     const word = `【约会基金】：范方出资 ${(money * moneyRate).toFixed(2)} 元，钱方出资 ${(money * (1 - moneyRate)).toFixed(2)} 元，共 ${money} 元。`;
     console.log(`🥩 此次约会基金===>[${word}]`)
-    const img = imgs[getRandom(0, imgs.length - 1)];
-    console.log(`🍉 此次的图片为[${img}]`)
-    const temp = await fetch(img);
-    const tempData = await temp.arrayBuffer();
-    const imgurl = `data:image/${getImgeName(img)};base64,${Buffer.from(tempData, 'binary').toString('base64')}`;
     // 计算日期
     const lovingDays = dayjs(dayjs().tz('Asia/Shanghai')).diff(
       startDay,
       'days'
     );
-    console.log('===♥️lovingDays===', lovingDays)
+    console.log('===🛩️ lovingDays===', lovingDays)
+
+    const mD = dayjs(dayjs().tz('Asia/Shanghai')).diff(
+      marryDay,
+      'days'
+    );
+    console.log('===🥠 marryDays===', mD)
     // 用邮件模版生成字符串
-    const htmlStr = emailHtml(weatherData, lifeData, word, imgurl, lovingDays);
+    const htmlStr = emailHtml(weatherData, lifeData, word, lovingDays,mD);
     // 发送邮件; 本人的话一个月发一次邮件 定于每月12号发送邮件
     to.forEach(p => {
       if (p === masterAccount && dayjs().date() == 12) {
